@@ -11,6 +11,10 @@
   <a href="#evaluation-status">Status</a>
 </p>
 
+<p align="center">
+  <img src="assets/researchclawarena_pipeline.svg" alt="ResearchClawArena benchmark pipeline" width="100%">
+</p>
+
 ---
 
 ## What is ResearchClawArena?
@@ -92,17 +96,13 @@ ResearchClawArena currently includes seven AI Scientist agents:
 
 ## Benchmark Pipeline
 
-```mermaid
-flowchart TD
-    T[Competition-Style Task] --> N[Normalized Agent Input]
-    N --> A[Agent Execution]
-    A --> L[Trajectory and Log Collection]
-    L --> O[Outcome Evaluation]
-    L --> P[Process-Level Evaluation]
-    O --> R[Diagnostic Report]
-    P --> R
-    R --> B[Leaderboard]
-```
+ResearchClawArena follows a unified evaluation pipeline:
+
+1. Convert each real competition-style task into a normalized agent input.
+2. Run each AI Scientist agent under a controlled execution setting.
+3. Collect full research trajectories, logs, code changes, intermediate outputs, errors, and final submissions.
+4. Evaluate both the final outcome and the research process.
+5. Produce diagnostic reports and a public leaderboard after metric calibration.
 
 The goal is not only to rank agents, but also to explain why they succeed or fail.
 
@@ -151,7 +151,7 @@ ResearchClawArena/
 │   ├── compute_process_metrics.py
 │   └── build_leaderboard.py
 └── assets/
-    ├── pipeline.png
+    ├── researchclawarena_pipeline.svg
     ├── process_metrics.png
     └── example_trajectory.png
 ```
